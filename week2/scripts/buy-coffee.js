@@ -47,11 +47,18 @@ async function main() {
   console.log("== start ==");
   await printBalance(addresses);
 
-  // Buy the owner coffee
+  // Declare tip
   const tip = {value: hre.ethers.utils.parseEther("1")};
+
+  // Buy the owner coffee
   await buyMeACoffee.connect(tipper).buyCoffee("Obrin", "Nice", tip);
   await buyMeACoffee.connect(tipper2).buyCoffee("Borin", "Real nice", tip);
   await buyMeACoffee.connect(tipper3).buyCoffee("Nibor", "Niiiiiice", tip);
+
+  // Buy the owner a large coffee
+  await buyMeACoffee.connect(tipper).buyLargeCoffee("Obrin", "Nice", tip);
+  await buyMeACoffee.connect(tipper2).buyLargeCoffee("Borin", "Real nice", tip);
+  await buyMeACoffee.connect(tipper3).buyLargeCoffee("Nibor", "Niiiiiice", tip);
 
   // Check balances after coffee purchase.
   console.log("== bought coffee ==");
