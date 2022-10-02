@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Base64.sol";
 
+// Smart contract
 contract ChainBattles is ERC721URIStorage  {
     using Strings for uint256;
     using Counters for Counters.Counter;
@@ -17,7 +18,7 @@ contract ChainBattles is ERC721URIStorage  {
     }
 
     // Generate NFT Image on chain
-    function generateCharacter(uint256 tokenId) public returns(string memory){
+    function generateCharacter(uint256 tokenId) public view returns(string memory){
 
         bytes memory svg = abi.encodePacked(
             '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350">',
@@ -42,7 +43,7 @@ contract ChainBattles is ERC721URIStorage  {
     }
 
     // Generate and retrieve NFT TokenURI
-    function getTokenURI(uint256 tokenId) public returns (string memory){
+    function getTokenURI(uint256 tokenId) public view returns (string memory){
     bytes memory dataURI = abi.encodePacked(
             '{',
                 '"name": "Chain Battles #', tokenId.toString(), '",',
@@ -67,12 +68,13 @@ contract ChainBattles is ERC721URIStorage  {
         _setTokenURI(newItemId, getTokenURI(newItemId));
     }
 
+    // Train function to raise NFT level
     // Make sure nft exists and verify ownership, increment NFT level by 1, update token URI
     function train(uint256 tokenId) public {
         require(_exists(tokenId), "Please use an existing token");
         require(ownerOf(tokenId) == msg.sender, "You must own this token to train it");
         uint256 currentLevel = tokenIdToLevels[tokenId];
-        tokenIdToLevels[tokenId] = currentLevels + 1;
+        tokenIdToLevels[tokenId] = currentLevel + 1;
         _setTokenURI(tokenId, getTokenURI(tokenId));
     }
 }
