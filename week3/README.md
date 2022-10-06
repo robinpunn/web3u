@@ -1,13 +1,13 @@
-# Sample Hardhat Project
+# Web3 University Week 3 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## How to Make NFTs with On-Chain Metadata - Hardhat and JavaScript
 
-Try running some of the following tasks:
+### This lesson covers:
+1. How to store NFTs metadata on chain
+2. What is Polygon and why it's important to lower Gas fees.
+3. How to deploy on Polygon Mumbai
+4. How to process and store on-chain SVG images and JSON objects
+5. How to modify your metadata based on your interactions with the NFT
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+#####  <a href="https://www.youtube.com/watch?v=8FJvY4zXvPE">Video Tutorial</a>
+##### <a href="https://docs.alchemy.com/docs/how-to-make-nfts-with-on-chain-metadata-hardhat-and-javascript#this-weeks-challenge">Written Tutorial</a>
