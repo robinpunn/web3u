@@ -2,11 +2,14 @@ import { useState } from 'react'
 
 const Home = () => {
   
+  const [wallet, setWalletAddress] = useState("");
+  const [collection, setCollectionAddress] = useState("");
+  const [NFTs, setNFTs] = useState([])
+  
   const fetchNFTs = async() => {
     let nfts; 
     console.log("fetching nfts");
-    const api_key = "sNDD-FVUkYvFYNch_PFUK5OsaZHJ5vqC"
-    const baseURL = `https://eth-mainnet.alchemyapi.io/v2/${api_key}/getNFTs/`;
+    const baseURL = `https://eth-mainnet.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_api_key}/getNFTs/`;
     var requestOptions = {
         method: 'GET'
       };
@@ -28,10 +31,6 @@ const Home = () => {
     }
   }
 
-  const [wallet, setWalletAddress] = useState("");
-  const [collection, setCollectionAddress] = useState("");
-  const [NFTs, setNFTs] = useState([])
-
   return (
     <div className="flex flex-col items-center justify-center py-8 gap-y-3">
       <div className="flex flex-col w-full justify-center items-center gap-y-2">
@@ -48,6 +47,9 @@ const Home = () => {
   )
 }
 
+
 export default Home
+
+
 
 
