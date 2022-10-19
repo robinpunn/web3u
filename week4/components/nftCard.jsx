@@ -3,7 +3,7 @@ export const NFTCard = ({nft}) => {
     const address = (nft.contract.address).slice(0,4) + "..." + (nft.contract.address).slice(-4)
     
     return(
-        <div className="w-1/4 flex flex-col ">
+        <div className="w-1/4 flex flex-col">
             <div className="rounded-md">
                 <img className="object-cover h-128 w-full rounded-t-md" src={nft.media[0].gateway} ></img>
             </div>
